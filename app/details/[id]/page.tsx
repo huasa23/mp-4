@@ -4,7 +4,7 @@ import getExhibition from "../../../lib/getExhibition";
 import { ExhibitionType } from "@/interfaces/ExhibitionType";
 import styled from 'styled-components';
 import { Play } from "next/font/google";
-
+import { useParams } from "next/navigation";
 const play = Play({
     weight: '400',
     subsets: ['latin'],
@@ -48,12 +48,13 @@ const TextP=styled.p`
     font-style: normal;
 `;
 
-export default function DetailPage({ params }: { params: { id: string } }) {
+export default function DetailPage() {
+    const params = useParams();
     const [exhibition, setExhibition] = useState<ExhibitionType | null>(null);
     const [datestr, setDateStr] = useState<string | null>(null);
     useEffect(() => {
         async function fetchExhibition() {
-            const data = await getExhibition(params.id);
+            const data = await getExhibition(params.id as string);
             setExhibition(data);
             const dateObj = new Date(data.createdate);
             const friendlyTime = `${dateObj.getFullYear()}-${dateObj.getMonth() + 1}-${dateObj.getDate()} ${dateObj.getHours()}:${String(dateObj.getMinutes()).padStart(2, '0')}`;
