@@ -26,40 +26,11 @@ const ExhibitionDiv = styled.div`
     margin: 1%;
 `;
 
-const LinkDiv = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    justify-content: space-between;
-    margin-top: 1%;
-    width: 100%;
-    border-top: 1px solid black;
-`;
-
 const ImageDiv = styled.img`
     max-width: 100%;
     height: 30vh;
 `;
-const TitleP = styled.p`
 
-    text-decoration: none;
-    font-family: "Play", serif;
-    font-size: calc(1px + 1vw);
-    font-style: normal;
-    
-`;
-const ScoreP = styled.p`
-    font-family: "Play", serif;
-    font-size: calc(1px + 1vw);
-    margin-right: 1vw;
-`;
-const LinkA = styled.a`
-    text-decoration: none;
-    font-family: "Play", serif;
-    font-size: calc(1px + 1vw);
-    font-style: normal;
-    color: black;
-`;
 const LinkB = styled(Link)`
     text-decoration: none;
     font-family: ${play.style.fontFamily}, serif;
@@ -67,6 +38,7 @@ const LinkB = styled(Link)`
     font-style: normal;
     color: black;
 `;
+
 export default function Exhibitions(props: {exhibitionData: ExhibitionType[]}){
 
     return(
