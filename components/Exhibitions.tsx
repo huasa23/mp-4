@@ -1,5 +1,5 @@
 "use client";
-import { NarutoType } from "../interfaces/Naruto";
+import { ExhibitionType } from "../interfaces/ExhibitionType";
 import styled from "styled-components";
 import Link from "next/link";
 import { Play } from "next/font/google";
@@ -10,14 +10,14 @@ const play = Play({
     display: 'swap',
 });
 
-const NarutoWrapperDiv = styled.div`
+const ExhibitionWrapperDiv = styled.div`
     width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
 `;
 
-const NarutoDiv = styled.div`
+const ExhibitionDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,28 +67,21 @@ const LinkB = styled(Link)`
     font-style: normal;
     color: black;
 `;
-export default function Naruto(props: {narutoData: NarutoType[]}){
+export default function Exhibitions(props: {exhibitionData: ExhibitionType[]}){
 
     return(
-        <NarutoWrapperDiv>
-            {props.narutoData.map((naruto) => (
-                <NarutoDiv key={naruto.title}>
+        <ExhibitionWrapperDiv>
+            {props.exhibitionData.map((exhibition) => (
+                <ExhibitionDiv key={exhibition.title}>
                 
-                <ImageDiv src={naruto.primaryimageurl} alt={naruto.title}/>
-                <LinkB href={`/details/${naruto.id}`}>
-                {naruto.title}
+                <ImageDiv src={exhibition.primaryimageurl} alt={exhibition.title}/>
+                <LinkB href={`/details/${exhibition.id}`}>
+                {exhibition.title}
                 </LinkB>
-                {/* <TitleP>{naruto.title}</TitleP> */}
-                
-                {/* <LinkDiv>
-                    <ScoreP>Rating: {naruto.score}</ScoreP>
-                    <LinkA href={naruto.url}>Profile</LinkA>
-                    {naruto.trailer.url ? <LinkA href={naruto.trailer.url}>|Trailer</LinkA> : null}
-                </LinkDiv> */}
-                </NarutoDiv>
+                </ExhibitionDiv>
             ))}
             
-        </NarutoWrapperDiv>
+        </ExhibitionWrapperDiv>
         
     )
 }

@@ -9,14 +9,14 @@ const sixtyfourConvergence = Sixtyfour_Convergence({
     display: 'swap',
 });
 
-const NarutoHeaderDiv=styled.div`
+const ExhibitionHeaderDiv=styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 1vh 1vw;
 `;
 
-const NarutoMovieH1=styled.h1`
+const ExhibitionH1=styled.h1`
     margin: auto;
     font-family: ${sixtyfourConvergence.style.fontFamily}, serif;
     font-optical-sizing: auto;
@@ -24,8 +24,8 @@ const NarutoMovieH1=styled.h1`
 `;
 export default function Header() {
     return (
-        <NarutoHeaderDiv>
-            <NarutoMovieH1>Harvard Art Museums Exhibitions</NarutoMovieH1>
-        </NarutoHeaderDiv>
+        <ExhibitionHeaderDiv>
+            <ExhibitionH1>Harvard Art Museums Exhibitions</ExhibitionH1>
+        </ExhibitionHeaderDiv>
     );
 }

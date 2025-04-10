@@ -1,6 +1,6 @@
 "use client";
-import { NarutoType } from "../interfaces/Naruto";
-import Naruto from "../components/Naruto";
+import { ExhibitionType } from "../interfaces/ExhibitionType";
+import Exhibitions from "../components/Exhibitions";
 import styled from 'styled-components';
 import {useEffect, useState} from "react";
 import getExhibitions from "@/lib/getExhibitions";
@@ -9,17 +9,14 @@ const WrapperDiv=styled.div`
     margin: auto;
 `;
 
-    // display: flex;
-    // flex-direction: column;
 export default function App(){
-const [narutoData, setNarutoData] = useState<NarutoType[]>([]);
+    const [exhibitionData, setExhibitionData] = useState<ExhibitionType[]>([]);
 
     useEffect(() => {
         
         async function fetchExhibitions() {
             const data = await getExhibitions();
-            console.log(data);
-            setNarutoData(data.records);
+            setExhibitionData(data.records);
         }
         
         fetchExhibitions()
@@ -28,8 +25,7 @@ const [narutoData, setNarutoData] = useState<NarutoType[]>([]);
 
     return (
         <WrapperDiv>
-            
-            <Naruto narutoData={narutoData}/>
+            <Exhibitions exhibitionData={exhibitionData}/>
         </WrapperDiv>
     )
 }

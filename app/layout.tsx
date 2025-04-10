@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import styled from "styled-components";
 import Header from "@/components/Header";
-// import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Naruto Movies",
-  description: "Naruto Movies",
+  title: "Harvard Art Museums Exhibitions",
+  description: "Harvard Art Museums Exhibitions",
 };
 
 export default function RootLayout({

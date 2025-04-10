@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import getExhibition from "../../../lib/getExhibition";
-import { NarutoType } from "@/interfaces/Naruto";
+import { ExhibitionType } from "@/interfaces/ExhibitionType";
 import styled from 'styled-components';
 import { Play } from "next/font/google";
 
@@ -49,17 +49,14 @@ const TextP=styled.p`
 `;
 
 export default function DetailPage({ params }: { params: { id: string } }) {
-    const [exhibition, setExhibition] = useState<NarutoType | null>(null);
+    const [exhibition, setExhibition] = useState<ExhibitionType | null>(null);
     const [datestr, setDateStr] = useState<string | null>(null);
     useEffect(() => {
-        console.log(params.id);
         async function fetchExhibition() {
             const data = await getExhibition(params.id);
-            console.log(data);
             setExhibition(data);
             const dateObj = new Date(data.createdate);
             const friendlyTime = `${dateObj.getFullYear()}-${dateObj.getMonth() + 1}-${dateObj.getDate()} ${dateObj.getHours()}:${String(dateObj.getMinutes()).padStart(2, '0')}`;
-            console.log(friendlyTime);
             setDateStr(friendlyTime);
         };
         fetchExhibition()

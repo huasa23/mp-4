@@ -1,17 +1,10 @@
-export interface NarutoType {
+export interface ExhibitionType {
     title: string;
     primaryimageurl: string;
     url: string;
     images: {
         baseimageurl: string;
-        // jpg: {
-        //     image_url: string;
-        // }
     };
-    // trailer: {
-    //     url: string;
-    // }
-    // score: number;
     id: string;
     createdate: string;
     venues: {
